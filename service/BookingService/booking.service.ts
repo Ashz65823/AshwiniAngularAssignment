@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
+import { Booking } from 'src/model/Booking';
 
 @Injectable({
   providedIn: 'root'
 })
-export class GetAllBookingService {
+export class BookingService {
 
-  constructor() { }
   booking = [{
     "roomNo": "101",
     "charges": "500.00"
@@ -16,6 +16,8 @@ export class GetAllBookingService {
     "roomNo": "103",
     "charges": "700.00"
   }];
+
+  constructor() { }
 
   getAllRoomsForBooking() {
     return this.booking;
