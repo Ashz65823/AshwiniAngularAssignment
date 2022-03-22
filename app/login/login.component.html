@@ -1,0 +1,37 @@
+<form #visible="ngForm">
+    <table
+        style="padding: 0.5cm;margin: 1cm;background-color: aliceblue;border-radius: 20%;border: 1px rgb(114, 128, 250) solid;">
+        <tr>
+            <th colspan="2">
+                <h2 style="text-align: center;"><u>Login</u></h2>
+            </th>
+        </tr>
+        <tr>
+            <td style="padding: 0.3cm;">User Name</td>
+            <td style="padding: 0.3cm;">
+                <input #nameField="ngModel" type="text" value="" [(ngModel)]="user.userName" name="userName"
+                    placeholder="UserName" required>
+            </td>
+            <td>
+                <span *ngIf="nameField.invalid && nameField.touched" style="color: red;">*User name is mandatory</span>
+            </td>
+        </tr>
+        <tr>
+            <td style="padding: 0.3cm;">Password</td>
+            <td style="padding: 0.3cm;">
+                <!--#nameField is templet refrence used to refere on same page it can be of anytime
+                It is used when we want value of any field on same page-->
+                <input #nameField2="ngModel" type="password" value="" [(ngModel)]="user.password" name="password"
+                    placeholder="Password" required>
+            </td>
+            <td>
+                <span *ngIf="nameField2.invalid && nameField2.touched" style="color: red;">*Password is mandatory</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" style="padding: 0.5cm;">
+                <input type="button" value="Login" (click)="PerformLogin()" [disabled]="visible.invalid">
+            </td>
+        </tr>
+    </table>
+</form>
